@@ -18,6 +18,19 @@ const config = {
       },
     },
     extend: {
+      colors: {
+         primary: "#71A894",
+         text: "#303031",
+         accent: "#66645E"
+      },
+      fontSize: {
+        normal: "12px",
+        subtitle: "24px",
+        large: "64px",
+        largeMobile: "54px",
+        header: "48px",
+        headerMobile: "28px",
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },

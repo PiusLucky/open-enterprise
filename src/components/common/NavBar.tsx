@@ -1,11 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { X } from "lucide-react";
+import { MenuIcon, X } from "lucide-react";
 import Link from "next/link";
 
 function NavBar() {
   const [menu, setMenu] = useState(false);
+
+  const links = ["Why Open Enterprise", "Features", "Contribute"];
   const toggleMenu = () => {
     setMenu(!menu);
   };
@@ -16,23 +18,22 @@ function NavBar() {
       <div className=" hidden lg:block animate-in fade-in zoom-in bg-white p-4">
         <div className="flex justify-between mx-[41px] items-center">
           <div>
-            <img src="/svgs/sf_logo.svg" alt="logo" />
-          </div>
-          <div className="flex gap-[20px] xl:gap-[50px] text-[16px] items-center select-none">
-            <p
-              className={`hover:text-primary cursor-pointer flex items-center gap-2  font-[500] text-gray`}
-            >
-              Link1
-            </p>
-            {/* Add more links here */}
+            <img src="/images/logo.png" alt="logo" />
           </div>
           <div className="flex items-center gap-[40px] select-none">
-            <Link
-              href="/auth/login"
-              className="hover:text-primary cursor-pointer flex items-center gap-2 "
+            {links.map((link, index) => (
+              <p
+                className={`hover:text-primary cursor-pointer font-bold flex items-center gap-2  text-gray`}
+                key={index}
+              >
+                {link}
+              </p>
+            ))}
+            <p
+              className={`text-primary cursor-pointer font-bold flex items-center gap-2  text-gray`}
             >
-              Sign in
-            </Link>
+              Request early access
+            </p>
           </div>
         </div>
       </div>
@@ -44,7 +45,7 @@ function NavBar() {
       >
         <div className="flex justify-between mx-[10px]">
           <div className="flex gap-[50px] text-[16px] items-center select-none">
-            <img src="/svgs/sf_logo.svg" alt="logo" className="w-[7rem]" />
+            <img src="/images/logo.png" alt="logo" className="w-[12rem]" />
           </div>
           <div className="flex items-center gap-[40px]">
             {menu ? (
@@ -53,9 +54,7 @@ function NavBar() {
                 onClick={toggleMenu}
               />
             ) : (
-              <img
-                src="/svgs/hamburger.svg"
-                alt="logo"
+              <MenuIcon
                 className="cursor-pointer animate-in fade-in zoom-in"
                 onClick={toggleMenu}
               />
@@ -65,16 +64,19 @@ function NavBar() {
         {menu ? (
           <div className="my-8 select-none animate-in slide-in-from-right">
             <div className="flex flex-col gap-8 mt-8 mx-4">
-              <p className="text-black cursor-pointer">
-                <span>How it works</span>
+              {links.map((link, index) => (
+                <p
+                  className={`hover:text-primary cursor-pointer font-bold flex items-center gap-2  text-gray`}
+                  key={index}
+                >
+                  {link}
+                </p>
+              ))}
+              <p
+                className={`text-primary cursor-pointer font-bold flex items-center gap-2  text-gray`}
+              >
+                Request early access
               </p>
-              {/* Add more links here */}
-
-              <div className="flex flex-col gap-[40px] select-none">
-                <Link href="/auth/login" className="text-black cursor-pointer">
-                  Signin
-                </Link>
-              </div>
             </div>
           </div>
         ) : (
