@@ -2,7 +2,7 @@
 Open Enterprise website built with Next14, Shadcn, and Tailwind.
 
 # Youtube
-
+https://youtu.be/Qe0eZp3VsYo
 
 # ☁️ Deployed link
 https://open-enterprise-beta.vercel.app/
